@@ -1,6 +1,8 @@
 link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
 
 script(type='text/javascript', src='bower_components/angular/angular.js')
+script(type='text/javascript', src='bower_components/angular-resource/angular-resource.js')
+ 
 script(type='text/javascript', src='/app/app.js')
 
 body(ng-app='app')
@@ -8,7 +10,7 @@ body(ng-app='app')
         h1 Find a Job Today!
         div(ng-controller='testCtrl')
             list-group
-                a.list.group-item(href='#')(ng-repeat="job in jobs")
+                a.list.group-item(ng-repeat="job in jobs")
                     h4.list-group-item-heading {{job.title}}
                     p.list-group-item-text {{job.description}}
                     
