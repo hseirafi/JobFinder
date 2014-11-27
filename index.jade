@@ -1,17 +1,24 @@
-link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
 
-script(type='text/javascript', src='bower_components/angular/angular.js')
-script(type='text/javascript', src='bower_components/angular-resource/angular-resource.js')
- 
+//
+   Created by hseirafi on 24/10/2014.
+link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+script(type='text/javascript', src='/bower_components/angular/angular.js')
+script(type='text/javascript', src='/bower_components/angular-resource/angular-resource.js')
 script(type='text/javascript', src='/app/app.js')
-
+script(type='text/javascript', src='/app/jobs.js')
 body(ng-app='app')
-    .container
-        h1 Find a Job Today!
-        div(ng-controller='testCtrl')
-            list-group
-                a.list.group-item(ng-repeat="job in jobs")
-                    h4.list-group-item-heading {{job.title}}
-                    p.list-group-item-text {{job.description}}
-                    
-           
+   .container
+      div(ng-controller='testCtrl')
+         h1 Post a new job
+         form(ng-submit="submit()")
+            .form-group
+               input.form-control(placeholder="Title" ng-model="title")
+             .form-group
+                textarea.form-control(placeholder="Description" ng-model="description")
+             .form-group
+                button.btn.btn-primary(type="submit") Post
+         h1 Find a job today!
+         .list-group
+            a.list-group-item(href='#')(ng-repeat="job in jobs")
+               h4.list-group-item-heading {{ job.title }}
+               p.list-group-item-text {{ job.description }}
